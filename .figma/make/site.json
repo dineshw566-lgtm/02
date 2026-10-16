@@ -1,0 +1,18 @@
+{
+  "title": "VIZHEN PLUS OPTICS | For Your Perfect Vision",
+  "description": "Discover considered frames, comprehensive eye care and personal styling at VIZHEN PLUS OPTICS - For Your Perfect Vision.",
+  "language": "en",
+  "icons": {
+    "icon": "/favicon.png"
+  },
+  "openGraph": {
+    "image": "/logo.png"
+  },
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

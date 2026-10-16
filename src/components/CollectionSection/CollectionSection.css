@@ -1,0 +1,166 @@
+/* ==========================================================================
+   COLLECTION GALLERY SECTION
+   Matches reference screenshot: white bg, plain heading, 4-col pure-image grid
+   ========================================================================== */
+
+.collection-gallery-section {
+  width: 100%;
+  background: #ffffff;
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+
+.collection-gallery-container {
+  /* Align grid edges to ~91px from viewport edge at 1463px wide */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 91px;
+}
+
+/* --- SECTION HEADING --- */
+.collection-gallery-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.collection-gallery-title {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1;
+}
+
+/* No accent on "N" — heading is plain black */
+.collection-gallery-title span {
+  color: inherit;
+}
+
+/* --- PRODUCT GRID --- */
+.collection-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 13px;
+  row-gap: 6px;
+}
+
+/* --- PRODUCT CARD — pure image, no footer --- */
+.collection-gallery-card {
+  display: block;
+  background: #f1f1f1;
+  border: 1px solid #d8d0d0;
+  border-radius: 0;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  /* No hover transform or shadow — matches the static reference */
+}
+
+/* --- IMAGE AREA: 4:5 aspect ratio (266 × 335 at reference viewport) --- */
+.collection-card-image-wrap {
+  width: 100%;
+  aspect-ratio: 266 / 335;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.collection-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* Hide the label and info footer — logos are already in the product images */
+.collection-card-label,
+.collection-card-info {
+  display: none;
+}
+
+/* --- VIEW ALL ROW --- */
+.collection-gallery-view-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.collection-gallery-view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2.25rem;
+  background: #ffffff;
+  border: 1.5px solid #111111;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #111111;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 220ms ease, color 220ms ease;
+}
+
+.collection-gallery-view-all-btn:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* Tablet ≤1024px — reduce side padding */
+@media (max-width: 1024px) {
+  .collection-gallery-container {
+    padding: 0 40px;
+  }
+}
+
+/* Tablet ≤768px — 2 columns */
+@media (max-width: 768px) {
+  .collection-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 6px;
+  }
+  .collection-gallery-container {
+    padding: 0 24px;
+  }
+  .collection-gallery-section {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+  .collection-gallery-heading {
+    margin-bottom: 36px;
+  }
+  .collection-gallery-title {
+    font-size: 18px;
+  }
+}
+
+/* Mobile ≤480px — 1 column on very narrow screens */
+@media (max-width: 380px) {
+  .collection-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .collection-gallery-container {
+    padding: 0 16px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .collection-gallery-view-all-btn {
+    transition: none !important;
+  }
+}

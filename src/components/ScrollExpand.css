@@ -1,0 +1,157 @@
+.scroll-expand {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-expand--scroller {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior: contain;
+}
+
+.scroll-expand--scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-expand__track {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-expand__stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  --se-title-size: 4rem;
+}
+
+.scroll-expand__frame {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(21% 29% 21% 29% round 24px);
+  will-change: clip-path;
+  z-index: 1;
+}
+
+.scroll-expand__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  transform-origin: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.scroll-expand__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(13, 41, 37, 0.88),
+    rgba(13, 41, 37, 0.4) 50%,
+    rgba(5, 20, 17, 0.65)
+  );
+  opacity: 0;
+  z-index: 2;
+}
+
+.scroll-expand__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6%;
+  opacity: 0;
+  will-change: opacity, transform;
+  z-index: 3;
+}
+
+.scroll-expand__overlay a,
+.scroll-expand__overlay button {
+  pointer-events: auto;
+}
+
+.scroll-expand__title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0 6%;
+  text-align: center;
+  font-family: var(--font-display, "Prata", Georgia, serif);
+  font-size: var(--se-title-size);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  will-change: opacity, transform;
+  z-index: 4;
+}
+
+.scroll-expand__hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2rem;
+  text-align: center;
+  font-family: var(--font-label, "DM Sans", sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  will-change: opacity, transform;
+  z-index: 5;
+}
+
+/* Custom styling for the homepage atelier scroll expansion */
+.atelier-expand-overlay {
+  max-width: 48rem;
+  color: var(--white, #fff);
+}
+
+.atelier-expand-overlay .eyebrow {
+  color: var(--accent, #d7f36a);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.22em;
+}
+
+.atelier-expand-overlay h2 {
+  font-size: clamp(2.5rem, 5.5vw, 5.2rem);
+  line-height: 1.08;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+.atelier-expand-overlay p:not(.eyebrow) {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 34rem;
+  margin: 0 auto 2.2rem;
+  line-height: 1.6;
+}
+
+.atelier-expand-actions {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}

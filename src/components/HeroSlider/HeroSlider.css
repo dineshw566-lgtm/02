@@ -1,0 +1,210 @@
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  min-height: 100svh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Subtle cinematic overlay for excellent contrast while preserving vivid lighting */
+.hero-cinematic-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0.48) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.28) 0%,
+      transparent 35%,
+      transparent 70%,
+      rgba(0, 0, 0, 0.38) 100%
+    );
+  pointer-events: none;
+}
+
+/* Centered Moon Shoe style Content Box */
+.hero-centered-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Main Heading: VISION REDEFINED — Fjalla One Big Bold */
+.hero-main-heading {
+  font-family: "Fjalla One", var(--font-clean-sans, sans-serif);
+  font-weight: 400;
+  font-size: clamp(3.5rem, 9.8vw, 7.6rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 1.25rem 0;
+  white-space: nowrap;
+  text-shadow: 0 4px 35px rgba(0, 0, 0, 0.8), 0 2px 8px rgba(0, 0, 0, 0.5);
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.15s;
+}
+
+/* Subtitle: Luxury eyewear. Timeless vision. — Sleek refined size */
+.hero-subtitle {
+  font-family: var(--font-clean-sans, "Inter", "Manrope", sans-serif);
+  font-weight: 600;
+  font-size: clamp(0.78rem, 1.15vw, 0.95rem);
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 2rem 0;
+  max-width: 38rem;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.3s;
+}
+
+/* CTA Buttons Group */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.45s;
+}
+
+/* Base button styling — Extra Bold */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-family: var(--font-clean-sans, "Inter", "Manrope", sans-serif);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+
+/* Explore Collection — Bright lime green (#DFFF45) */
+.hero-btn-primary {
+  background-color: #dfff45;
+  color: #111111;
+  border: 2px solid #dfff45;
+  box-shadow: 0 4px 20px rgba(223, 255, 69, 0.35);
+}
+
+.hero-btn-primary:hover {
+  background-color: #cdf042;
+  border-color: #cdf042;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(223, 255, 69, 0.5);
+}
+
+/* Buy Now — Transparent / Dark with crisp white border */
+.hero-btn-secondary {
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero-btn-secondary:hover {
+  background-color: #ffffff;
+  color: #111111;
+  border-color: #ffffff;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.35);
+}
+
+/* Keyframes for subtle entrance animation */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-main-heading {
+    font-size: clamp(2.8rem, 11vw, 4.6rem);
+    white-space: normal;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .hero-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.6rem;
+  }
+
+  .hero-cta-group {
+    gap: 0.85rem;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .hero-btn {
+    padding: 0.85rem 1.6rem;
+    font-size: 0.82rem;
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+    gap: 0.75rem;
+  }
+
+  .hero-btn {
+    width: 100%;
+    padding: 0.9rem 1.4rem;
+  }
+}
+

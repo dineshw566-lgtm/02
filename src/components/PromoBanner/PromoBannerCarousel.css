@@ -1,0 +1,573 @@
+/* ==========================================================================
+   VIZHEN PLUS OPTICS — PROMOTIONAL BANNERS SECTION
+   Exact measurements matching reference screenshot:
+   - Top banner: 1378px x 205px (6.72:1 ratio), 96px below hero
+   - Gap between banners: 75px
+   - Second banner: 1144px x 173px (6.61:1 ratio), centered independently
+   - Pagination dots: 14-20px below second banner (○ ○ ▬ ○)
+   ========================================================================== */
+
+.promo-banners-section {
+  position: relative;
+  width: 100%;
+  background: var(--background, #faf8f3);
+  padding-bottom: 4rem;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   1. TOP PROMOTIONAL BANNER (1378px x 205px — 6.72:1)
+   ========================================================================== */
+.promo-banner-top {
+  display: grid;
+  grid-template-columns: minmax(180px, 245px) 1.4fr auto;
+  align-items: center;
+  width: calc(100% - 32px);
+  max-width: 1378px;
+  aspect-ratio: 1378 / 205;
+  height: auto;
+  margin: 96px auto 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 32px rgba(15, 23, 21, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(90deg, #0d1a16 0%, #162621 35%, #1a2f29 70%, #0e1c18 100%);
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 300ms ease;
+}
+
+.promo-banner-top:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(15, 23, 21, 0.22);
+}
+
+.promo-top-img-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #091210;
+}
+
+.promo-top-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.promo-banner-top:hover .promo-top-img {
+  transform: scale(1.035);
+}
+
+.promo-top-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 75%, #0d1a16 100%);
+  pointer-events: none;
+}
+
+.promo-top-copy {
+  padding: 1.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  min-width: 0;
+}
+
+.promo-top-badge {
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #cbb494;
+  margin-bottom: 0.45rem;
+}
+
+.promo-top-heading {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-editorial, "Cormorant Garamond", serif);
+  font-size: clamp(1.25rem, 1.95vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: #f7f3ec;
+  text-transform: uppercase;
+}
+
+.promo-top-subtext {
+  margin: 0;
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: clamp(0.7rem, 0.9vw, 0.78rem);
+  color: #a49f96;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.promo-top-cta-wrap {
+  padding: 1.25rem 2.25rem 1.25rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 2;
+}
+
+.promo-top-btn {
+  background: #cbb494;
+  color: #0d1a16;
+  border: 1px solid #dfcfb8;
+  border-radius: 4px;
+  padding: 0.65rem 1.35rem;
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 220ms ease;
+  cursor: pointer;
+}
+
+.promo-banner-top:hover .promo-top-btn {
+  background: #dfcfb8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
+}
+
+.promo-banner-top:hover .promo-top-btn svg {
+  transform: translateX(3px);
+}
+
+.promo-top-btn svg {
+  transition: transform 200ms ease;
+}
+
+/* ==========================================================================
+   2. SECOND PROMOTIONAL BANNER (1144px x 173px — 6.61:1)
+   Gap of 75px above, centered independently
+   ========================================================================== */
+.promo-banner-second-container {
+  width: calc(100% - 32px);
+  max-width: 1144px;
+  margin: 75px auto 0;
+  position: relative;
+}
+
+.promo-banner-second-viewport {
+  width: 100%;
+  aspect-ratio: 1144 / 173;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 26px rgba(23, 28, 28, 0.05);
+  border: 1px solid #eae5dd;
+  background: #ffffff;
+  position: relative;
+}
+
+.promo-banner-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+/* Individual Slide */
+.promo-banner-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(140px, 195px) 1.35fr minmax(130px, 175px) auto;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  color: #171c1c;
+  overflow: hidden;
+}
+
+/* Theme Gradients */
+.promo-banner-slide.slide-theme-1 {
+  background: linear-gradient(90deg, #f2eee5 0%, #faf8f3 32%, #f5f1e8 70%, #ebe5d9 100%);
+}
+
+.promo-banner-slide.slide-theme-2 {
+  background: linear-gradient(90deg, #f7f4ee 0%, #ffffff 30%, #f7f3ea 70%, #ede6db 100%);
+}
+
+.promo-banner-slide.slide-theme-3 {
+  background: linear-gradient(90deg, #ede9e1 0%, #f9f6f0 35%, #f2ede5 75%, #e8e2d6 100%);
+}
+
+/* Left Lifestyle Image */
+.promo-lifestyle-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #e9e5da;
+}
+
+.promo-lifestyle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.promo-banner-slide:hover .promo-lifestyle-img {
+  transform: scale(1.035);
+}
+
+.promo-lifestyle-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 80%, rgba(0, 0, 0, 0.08) 100%);
+  pointer-events: none;
+}
+
+/* Center Copy */
+.promo-copy-wrap {
+  padding: 1rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  min-width: 0;
+}
+
+.promo-brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.promo-brand-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.promo-badge-text {
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #734b30;
+}
+
+.promo-heading {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-editorial, "Cormorant Garamond", serif);
+  font-size: clamp(1.15rem, 1.6vw, 1.48rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #171c1c;
+}
+
+.promo-subtext {
+  margin: 0;
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: clamp(0.68rem, 0.82vw, 0.74rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #68716e;
+  line-height: 1.3;
+}
+
+/* Product Visual (Center-Right) */
+.promo-product-wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+  position: relative;
+}
+
+.promo-product-img {
+  max-width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(23, 28, 28, 0.12));
+  transition: transform 500ms ease;
+}
+
+.promo-banner-slide:hover .promo-product-img {
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Right CTA Button */
+.promo-cta-wrap {
+  padding: 1rem 1.75rem 1rem 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 2;
+}
+
+.promo-cta-btn {
+  background: #173f38;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 0.6rem 1.15rem;
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 12px rgba(17, 30, 27, 0.16);
+  transition: all 220ms ease;
+  cursor: pointer;
+}
+
+.slide-theme-1 .promo-cta-btn {
+  background: #6c462e;
+}
+
+.slide-theme-2 .promo-cta-btn {
+  background: #173f38;
+}
+
+.slide-theme-3 .promo-cta-btn {
+  background: #25282a;
+}
+
+.promo-banner-slide:hover .promo-cta-btn {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 16px rgba(17, 30, 27, 0.22);
+}
+
+.promo-cta-arrow {
+  transition: transform 200ms ease;
+}
+
+.promo-banner-slide:hover .promo-cta-arrow {
+  transform: translateX(3px);
+}
+
+/* Previous / Next Arrow Controls */
+.promo-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 8;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(234, 229, 221, 0.9);
+  color: #171c1c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 200ms ease;
+  opacity: 0;
+  padding: 0;
+}
+
+.promo-nav-btn.prev {
+  left: 1rem;
+}
+
+.promo-nav-btn.next {
+  right: 1rem;
+}
+
+.promo-banner-second-viewport:hover .promo-nav-btn,
+.promo-nav-btn:focus-visible {
+  opacity: 1;
+}
+
+.promo-nav-btn:hover {
+  background: #ffffff;
+  color: #916443;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.promo-nav-btn:focus-visible {
+  outline: 2px solid #916443;
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   3. PAGINATION INDICATORS (14-20px below second banner)
+   Matching exact reference screenshot: ○ ○ ▬ ○
+   ========================================================================== */
+.promo-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.promo-indicator-dot {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  transition: opacity 200ms ease;
+}
+
+/* Inactive Dot (Small Circle) */
+.promo-indicator-dot::before {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d7d3c9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 240ms ease;
+}
+
+.promo-indicator-dot:hover::before {
+  background: #a8a297;
+}
+
+/* Active Indicator (Short Rounded Pill) */
+.promo-indicator-dot.active::before {
+  width: 26px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #171c1c;
+  border-color: #171c1c;
+}
+
+.promo-indicator-dot:focus-visible {
+  outline: 2px solid #916443;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (PRESERVING ASPECT RATIOS & PREVENTING OVERFLOW)
+   ========================================================================== */
+
+/* Tablets (max-width: 960px) */
+@media (max-width: 960px) {
+  .promo-banner-top {
+    margin-top: 64px;
+    grid-template-columns: 160px 1fr auto;
+  }
+  .promo-top-copy {
+    padding: 1rem 1.25rem;
+  }
+  .promo-top-cta-wrap {
+    padding: 1rem 1.25rem 1rem 0.5rem;
+  }
+  .promo-banner-second-container {
+    margin-top: 50px;
+  }
+  .promo-banner-slide {
+    grid-template-columns: 140px 1fr auto;
+  }
+  .promo-product-wrap {
+    display: none;
+  }
+  .promo-copy-wrap {
+    padding: 0.75rem 1.25rem;
+  }
+  .promo-nav-btn {
+    opacity: 0.85;
+  }
+}
+
+/* Mobile Screens (max-width: 640px) */
+@media (max-width: 640px) {
+  .promo-banner-top {
+    margin-top: 48px;
+    aspect-ratio: auto;
+    min-height: 160px;
+    grid-template-columns: 110px 1fr;
+  }
+  .promo-top-cta-wrap {
+    grid-column: 1 / -1;
+    padding: 0.5rem 1rem 0.85rem;
+    justify-content: stretch;
+  }
+  .promo-top-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .promo-top-copy {
+    padding: 0.75rem 1rem;
+  }
+  .promo-banner-second-container {
+    margin-top: 40px;
+  }
+  .promo-banner-second-viewport {
+    aspect-ratio: auto;
+    min-height: 160px;
+  }
+  .promo-banner-slide {
+    grid-template-columns: 110px 1fr;
+  }
+  .promo-cta-wrap {
+    grid-column: 1 / -1;
+    padding: 0.5rem 1rem 0.85rem;
+    justify-content: stretch;
+  }
+  .promo-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .promo-copy-wrap {
+    padding: 0.75rem 1rem;
+  }
+  .promo-nav-btn {
+    display: none;
+  }
+  .promo-indicators {
+    margin-top: 14px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .promo-banner-track,
+  .promo-lifestyle-img,
+  .promo-product-img,
+  .promo-top-img,
+  .promo-cta-btn,
+  .promo-top-btn,
+  .promo-indicator-dot::before {
+    transition: none !important;
+  }
+}

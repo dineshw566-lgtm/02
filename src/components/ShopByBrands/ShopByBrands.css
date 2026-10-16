@@ -1,0 +1,265 @@
+/* ==========================================================================
+   STORY CIRCLES / BRAND & CATEGORY CAROUSEL
+   Recreation of Titan-style circular category/brand navigation strip.
+   Exact visual match to reference screenshot:
+   - Clean white background
+   - 96px circular items with smooth hover zoom
+   - 14px regular sans-serif text labels centered underneath
+   - Floating circular navigation arrows (< and >) aligned with circles
+   - Smooth horizontal scroll on arrow click and touch/swipe
+   ========================================================================== */
+
+.story-circles-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 36px 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-circles-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 56px;
+  position: relative;
+}
+
+/* --- TRACK / SCROLL CONTAINER --- */
+.story-circles-track {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 36px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding: 4px 6px 10px;
+  margin: 0 auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.story-circles-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* --- INDIVIDUAL ITEM LINK --- */
+.story-circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #1a1a1a;
+  flex: 0 0 auto;
+  width: 100px;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: transform 0.25s ease;
+}
+
+.story-circle-item:focus-visible .story-circle-avatar {
+  outline: 2px solid #916443;
+  outline-offset: 3px;
+}
+
+/* --- CIRCLE CONTAINER (96px x 96px) --- */
+.story-circle-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.story-circle-item:hover .story-circle-avatar {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.story-circle-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.story-circle-item:hover .story-circle-avatar img {
+  transform: scale(1.06);
+}
+
+/* Special image filters to match reference screenshot */
+.story-circle-avatar.avatar-bw img {
+  filter: grayscale(100%) contrast(1.08);
+}
+
+.story-circle-avatar.avatar-offer {
+  background: #ffffff;
+  border: 1.5px solid #f3bedb;
+}
+
+.story-circle-avatar.avatar-vetra {
+  background: #1d2c42;
+}
+
+.story-circle-avatar.avatar-mag {
+  background: #6f0c23;
+}
+
+/* --- LABEL BELOW CIRCLE --- */
+.story-circle-label {
+  margin-top: 12px;
+  font-family: var(--font-clean-sans, "Inter", -apple-system, sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  color: #1f1f1f;
+  text-align: center;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.story-circle-item:hover .story-circle-label {
+  color: #000000;
+}
+
+/* --- NAVIGATION ARROW BUTTONS --- */
+.story-nav-btn {
+  position: absolute;
+  top: 48px; /* Vertically centered with the 96px circles (48px from top) */
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  outline: none;
+  transition: all 0.22s ease;
+}
+
+.story-nav-btn:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+}
+
+.story-nav-btn:focus-visible {
+  outline: 2px solid #916443;
+  outline-offset: 2px;
+}
+
+.story-nav-btn.nav-prev {
+  left: 12px;
+}
+
+.story-nav-btn.nav-next {
+  right: 12px;
+}
+
+.story-nav-btn:disabled,
+.story-nav-btn.nav-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .story-circles-container {
+    padding: 0 40px;
+  }
+  .story-circles-track {
+    gap: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-circles-section {
+    padding: 24px 0 28px;
+  }
+  .story-circles-container {
+    padding: 0 16px;
+  }
+  .story-circle-avatar {
+    width: 84px;
+    height: 84px;
+  }
+  .story-circle-item {
+    width: 88px;
+  }
+  .story-circles-track {
+    gap: 20px;
+    padding: 2px 4px 6px;
+  }
+  .story-circle-label {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  .story-nav-btn {
+    top: 42px;
+    width: 32px;
+    height: 32px;
+  }
+  .story-nav-btn.nav-prev {
+    left: 4px;
+  }
+  .story-nav-btn.nav-next {
+    right: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-circles-section {
+    padding: 20px 0 24px;
+  }
+  .story-circle-avatar {
+    width: 76px;
+    height: 76px;
+  }
+  .story-circle-item {
+    width: 80px;
+  }
+  .story-circles-track {
+    gap: 16px;
+  }
+  .story-circle-label {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  .story-nav-btn {
+    display: none; /* Native touch swiping on mobile */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-circle-avatar,
+  .story-circle-avatar img,
+  .story-nav-btn {
+    transition: none !important;
+    transform: none !important;
+  }
+  .story-circles-track {
+    scroll-behavior: auto;
+  }
+}

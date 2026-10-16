@@ -1,0 +1,306 @@
+/* ==========================================================================
+   VIZHEN PLUS OPTICS — LUXURY EDITORIAL PRODUCT CARD
+   Inspired by high-end luxury fashion eyewear
+   ========================================================================== */
+
+.luxury-product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #eae5dd;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(23, 28, 28, 0.04);
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 320ms ease;
+  min-width: 0;
+}
+
+.luxury-product-card:hover {
+  transform: translateY(-4px);
+  border-color: #d8d0c4;
+  box-shadow: 0 14px 34px rgba(23, 28, 28, 0.09);
+}
+
+/* --- IMAGE WRAPPER --- */
+.luxury-image-wrap {
+  position: relative;
+  margin: 10px 10px 0 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3.05;
+  background: #f5f2eb;
+}
+
+.luxury-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 550ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.luxury-product-card:hover .luxury-product-img {
+  transform: scale(1.035);
+}
+
+/* --- BADGE: EDITOR'S PICK --- */
+.luxury-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(234, 229, 221, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #171c1c;
+  user-select: none;
+}
+
+.luxury-badge svg {
+  flex-shrink: 0;
+}
+
+/* --- WISHLIST BUTTON --- */
+.luxury-wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(234, 229, 221, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #171c1c;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.luxury-wishlist-btn:hover {
+  transform: scale(1.12);
+  background: #ffffff;
+}
+
+.luxury-wishlist-btn.active {
+  color: #e04b4b;
+  background: #ffffff;
+  border-color: rgba(224, 75, 75, 0.25);
+  box-shadow: 0 2px 10px rgba(224, 75, 75, 0.15);
+}
+
+.luxury-wishlist-btn:focus-visible {
+  outline: 2px solid #916443;
+  outline-offset: 2px;
+}
+
+/* --- CARD CONTENT --- */
+.luxury-product-info {
+  padding: 1.15rem 1.25rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* --- TITLE AND PRICE ROW --- */
+.luxury-title-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.luxury-product-name {
+  margin: 0;
+  font-family: var(--font-editorial, "Cormorant Garamond", serif);
+  font-size: 1.48rem;
+  font-weight: 600;
+  color: #171c1c;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.luxury-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.luxury-price-original {
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #858585;
+  text-decoration: line-through;
+}
+
+.luxury-price-current {
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #171c1c;
+  letter-spacing: -0.01em;
+}
+
+/* --- DESCRIPTION --- */
+.luxury-product-desc {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: 0.76rem;
+  color: #858585;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* --- COLOR SWATCHES --- */
+.luxury-swatches {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1.15rem;
+}
+
+.luxury-swatch-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0;
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  position: relative;
+}
+
+.luxury-swatch-dot:hover {
+  transform: scale(1.15);
+}
+
+.luxury-swatch-dot.active {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 3.5px #916443;
+}
+
+.luxury-swatch-dot:focus-visible {
+  outline: 2px solid #916443;
+  outline-offset: 3px;
+}
+
+/* --- PRODUCT ACTIONS ROW --- */
+.luxury-product-actions {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid #f0ece4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+/* DETAILS LINK BUTTON */
+.luxury-details-btn {
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #171c1c;
+  cursor: pointer;
+  transition: color 220ms ease;
+}
+
+.luxury-details-arrow {
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-details-btn:hover {
+  color: #916443;
+}
+
+.luxury-details-btn:hover .luxury-details-arrow {
+  transform: translateX(3px);
+}
+
+.luxury-details-btn:focus-visible {
+  outline: 2px solid #916443;
+  outline-offset: 3px;
+}
+
+/* TRY ON PILL BUTTON */
+.luxury-tryon-btn {
+  background: #916443;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-clean-sans, "Inter", sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(145, 100, 67, 0.16);
+  transition: background-color 240ms ease,
+              transform 200ms ease,
+              box-shadow 240ms ease;
+}
+
+.luxury-tryon-btn:hover {
+  background: #7b5235;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(145, 100, 67, 0.28);
+}
+
+.luxury-tryon-btn:active {
+  transform: translateY(0);
+}
+
+.luxury-tryon-btn:focus-visible {
+  outline: 2px solid #916443;
+  outline-offset: 2px;
+}
+
+/* --- REDUCED MOTION --- */
+@media (prefers-reduced-motion: reduce) {
+  .luxury-product-card,
+  .luxury-product-img,
+  .luxury-wishlist-btn,
+  .luxury-details-arrow,
+  .luxury-tryon-btn,
+  .luxury-swatch-dot {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
